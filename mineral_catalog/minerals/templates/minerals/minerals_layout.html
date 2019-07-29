@@ -1,0 +1,92 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Mineral Catalog - {{ title }}</title>
+    {% else %}
+        <title>Mineral Catalog</title>
+    {% endif %}
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'minerals/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'minerals/css/custom.css' %}">
+</head>
+<body>
+    <div class="bounds">
+        <div class="grid-100">
+          <a href="{% url 'minerals:minerals-home' %}">
+            <svg class="logo" viewBox="0 0 127.6 84.8" preserveAspectRation="xMinYMin meet">
+              <polygon points="42.7,84.8 49.6,79.4 40,62.5 51.2,43.5 51.2,43.5 25,0 0,55.6 "/>
+              <polygon class="logo--middle" points="52.9,79.5 52.9,79.5 84.8,80.1 59.7,35 43.3,62.4 "/>
+              <polygon points="127.6,61.4 127.6,61.4 110.3,13.5 110.3,13.5 70.3,48.1 70.3,48.1 88.3,80.5 95.3,81.4 95.3,81.4 "/>
+            </svg>
+            <h1 class="logo__name text-centered">Erik's Mineral Catalog</h1>
+          </a>
+          <p class="logo__text text-centered">They're more than rocks!</p>
+
+            <div class="grid-100">
+                <section>
+                    <form action="{% url 'minerals:minerals-search' %}" method="GET">
+                    <input type="text" placeholder="Search All Fields" name="search">
+                    <button type="submit" class="button">Search</button>
+                </form>
+                </section>
+                    <h6>Search by first letter:</h6>
+                    <hr>
+                    {% for letter in alphabet_upper %}
+                        {% if letter == search_letter %}
+                            <b>
+                                <u>
+                                    <a href="{% url 'minerals:minerals-search_by_letter' %}?letter={{ letter }}">{{ letter }}</a>
+                                </u>
+                            </b>
+                        {% else %}
+                            <a href="{% url 'minerals:minerals-search_by_letter' %}?letter={{ letter }}">{{ letter }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <hr><br>
+                    <h6>Search by mineral group:</h6>
+                    <hr>
+                    {% for group in mineral_groups %}
+                        {% if group == search_group %}
+                            |<b>
+                                <u>
+                                    <a href="{% url 'minerals:minerals-search_by_group' %}?group={{ group }}">{{ group }}</a>
+                                </u>
+                            </b>|
+                        {% else %}
+                            |<a href="{% url 'minerals:minerals-search_by_group' %}?group={{ group }}">{{ group }}</a>|
+                        {% endif %}
+                    {% endfor %}
+                    <hr><br>
+                    <h6>Search by mineral diaphaneity:</h6>
+                    <hr>
+                    {% for diaphaneity in mineral_diaphaneity %}
+                        {% if diaphaneity == search_diaphaneity %}
+                            |<b>
+                                <u>
+                                    <a href="{% url 'minerals:minerals-search_by_diaphaneity' %}?diaphaneity={{ diaphaneity }}">{{ diaphaneity }}</a>
+                                </u>
+                            </b>|
+                        {% else %}
+                            |<a href="{% url 'minerals:minerals-search_by_diaphaneity' %}?diaphaneity={{ diaphaneity }}">{{ diaphaneity }}</a>|
+                        {% endif %}
+                    {% endfor %}
+                    <hr>
+            </div>
+        </div>
+    {% block content %}
+    {% endblock content %}
+
+    </div>
+    <div class="minerals__random">
+        <a class="minerals__anchor" href="{% url 'minerals:minerals-random' %}">Show me a random mineral!</a>
+    </div>
+</body>
+</html>

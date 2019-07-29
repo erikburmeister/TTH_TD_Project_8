@@ -1,0 +1,119 @@
+.erik__custom {
+	list-style-type: circle;
+	color: white;
+}
+
+a {
+    color: #e542ff;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+a:hover { 
+	color: #efc2f9;
+}
+
+body {
+background-color: #282828;
+font-size: 1.5em;
+line-height: 1.6;
+font-weight: 400;
+font-family: "Cousine";
+color: #666; }
+
+.bounds {
+background: #282828;
+max-width: 800px;
+margin: 0 auto;
+padding: 50px 0 150px;
+overflow: hidden;
+}
+.bounds--small {
+max-width: 600px;
+padding: 50px 10px 150px;
+}
+
+button {
+  color: #ffffff;
+  background-color: #282828;
+  border-color: #e542ff;
+  border-radius: 100px;
+}
+
+input[type="text"], textarea {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #e542ff;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus {
+  border-color: #e542ff;
+}
+
+.logo {
+display: block;
+fill: #e542ff;
+position: relative;
+margin: 0 auto;
+width: 72px;
+}
+
+.logo--middle {
+fill: #fff;
+}
+
+.logo__name {
+color: #fff;
+margin-bottom: 0;
+}
+
+.logo__text {
+color: #fff;
+margin-bottom: 50px;
+font-size: 13px;
+}
+
+.minerals__anchor {
+border: solid 2px #e542ff;
+border-radius: 100px;
+color: #fff;
+display: block;
+font-size: 13px;
+text-align: center;
+padding: 8px 0 7px 0;
+width: 100%;
+transition: background-color 200ms ease-in-out, font-weight 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.minerals__anchor:hover {
+background-color: #282828;
+color: #e542ff;
+font-weight: bold;
+}
+
+.minerals__container {
+background-color: #474747;
+border-radius: 6px;
+list-style: none;
+padding: 30px 30px 20px 30px;
+-webkit-column-gap: 30px;
+-moz-column-gap: 30px;
+column-gap: 30px;
+}
+
+.minerals__random {
+background-color: #282828;
+box-shadow: 0 0 100px 50px #4c4c4c;
+color: #fff;
+padding: 20px 0 20px 0;
+position: fixed; bottom: 0;
+text-align: center;
+width: 100%;
+}
+
+
